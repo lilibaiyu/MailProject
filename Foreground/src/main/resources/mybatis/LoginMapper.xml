@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.LoginMapper">
+
+    <select id="queryUser" resultType="userLogin" >
+        select * from userLogin where user_id=#{user_id}
+    </select>
+
+    <insert id="insertUser" parameterType="userLogin">
+        insert into userLogin values (#{user_id},#{password})
+    </insert>
+
+
+    <update id="updatePassword">
+        update userLogin set password=#{arg1} where user_id=#{arg0}
+    </update>
+
+
+
+</mapper>

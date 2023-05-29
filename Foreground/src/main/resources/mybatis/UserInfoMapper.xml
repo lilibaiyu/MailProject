@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.UserInfoMapper">
+
+    <insert id="addNewUser" parameterType="String">
+        insert into userinfo set user_id=#{user_id}
+    </insert>
+
+    <select id="selectUserInfoById" resultType="userInfo" >
+        select * from userinfo where user_id=#{user_id}
+    </select>
+
+
+    <update id="updateUserInfo" parameterType="userInfo">
+        updata userinfo set nickname=#{nickname},gender=#{gender},phone=#{phone},email=#{email}
+        where user_id=#{user_id}
+    </update>
+
+</mapper>

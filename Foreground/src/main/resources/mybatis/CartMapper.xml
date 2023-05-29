@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.CartMapper">
+
+
+    <select id="findCartByGoodsAndUser" resultType="cart">
+        select * from cart where goods_id = #{arg0} and user_id=#{arg1}
+    </select>
+
+    <insert id="addToCart" parameterType="cart">
+        insert into cart values (#{goods_id},#{user_id})
+    </insert>
+
+
+    <select id="findGoodsInCart" resultType="goodsInfo">
+        select cart.goods_id,goods_name,unit_price,image, description
+        from cart left join goodsinfo
+        on cart.goods_id=goodsinfo.goods_id where user_id=#{user_id};
+    </select>
+
+
+    <delete id="deleteByGoodsAndUser">
+        delete from cart where goods_id=#{arg0} and user_id=#{arg1}
+    </delete>
+
+
+
+</mapper>
