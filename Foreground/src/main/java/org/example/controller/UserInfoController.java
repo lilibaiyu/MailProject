@@ -5,10 +5,7 @@ import org.example.service.UserInfoService;
 import org.example.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 //用户信息：显示用户主页信息、修改用户信息、修改用户密码
 @Controller
@@ -25,25 +22,26 @@ public class UserInfoController {
     @ResponseBody
     @RequestMapping("/showInfo")//二级映射
     public Result showUserInfo(@RequestParam("user_id") String user_id){
+//        System.out.println(userInfoService.selectUserInfo(user_id));
         return userInfoService.selectUserInfo(user_id);
     }
 
 
-    //修改信息
+    //修改信息，post方法
     //输入：修改后的userInfo类，以json形式传入，user_id,nickname,gender,phone,email必须齐全
     //返回：”修改成功！“+userInfo用户信息
     @ResponseBody
-    @RequestMapping("/updateInfo")
+    @RequestMapping(value = "/updateInfo",method = RequestMethod.POST)
     public Result updateUserInfo(@RequestBody UserInfo userInfo){
         return userInfoService.updateUserInfo(userInfo);
     }
 
 
-    //修改密码
+    //修改密码，post方法
     //输入：用户名user_id+新密码password
     //返回：”修改成功！“+新密码
     @ResponseBody
-    @RequestMapping("/updatePassword")
+    @RequestMapping(value = "/updatePassword",method = RequestMethod.POST)
     public Result changePassword(@RequestParam("user_id") String user_id,@RequestParam("password") String password){
         return userInfoService.updatePassword(user_id,password);
     }

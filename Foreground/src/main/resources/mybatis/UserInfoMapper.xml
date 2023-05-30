@@ -16,7 +16,7 @@
 
 
     <update id="updateUserInfo" parameterType="userInfo">
-        updata userinfo set nickname=#{nickname},gender=#{gender},phone=#{phone},email=#{email}
+        updata userinfo set nickname=#{nickname},icon=#{icon},gender=#{gender},phone=#{phone},email=#{email}
         where user_id=#{user_id}
     </update>
 

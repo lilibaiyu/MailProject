@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class UserInfo {
     private String user_id;
     private String nickname;//昵称、别称
+    private String icon;//头像
     private String gender;
     private int phone;
     private String email;

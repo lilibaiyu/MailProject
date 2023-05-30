@@ -14,4 +14,5 @@ public class GoodsInfo {
     private Double unit_price;
     private String image;
     private String description;
+    private Integer type_id;//商品类型
 }
