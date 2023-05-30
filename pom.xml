@@ -8,6 +8,7 @@
     <artifactId>MailProject</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+<!--maven项目结构指明Foreground模块-->
     <modules>
         <module>Foreground</module>
     </modules>

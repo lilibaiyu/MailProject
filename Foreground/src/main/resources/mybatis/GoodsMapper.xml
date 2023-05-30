@@ -2,8 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--指明GoodsMapper的位置-->
 <mapper namespace="org.example.mapper.GoodsMapper">
 
+<!--    定义数据库相关sql语句-->
     <select id="findByPage" resultType="goodsInfo" >
         select * from goodsInfo where goods_name like #{arg2} limit #{arg0},#{arg1}
 

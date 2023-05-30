@@ -8,15 +8,15 @@
         <artifactId>MailProject</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
+<!--指明maven项目模块名字-->
     <artifactId>Foreground</artifactId>
-
+<!--jdk是1.8-->
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+<!--导入springboot的依赖-->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -27,6 +27,7 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
+<!--导入springboot的web容器以及springMVC-->
     </dependencyManagement>
     <dependencies>
         <dependency>
@@ -39,6 +40,7 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.3</version>
         </dependency>
+<!--导入MySQL的相关依赖-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -50,13 +52,14 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
-        <!--lombok -->
+        <!--引入lombok，自动创建getter、setter等方法 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
+<!--导入Junit便于单元测试-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

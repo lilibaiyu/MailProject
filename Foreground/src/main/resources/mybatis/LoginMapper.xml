@@ -2,8 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--指明LoginMapper的位置-->
 <mapper namespace="org.example.mapper.LoginMapper">
 
+<!--    定义数据库相关sql语句-->
     <select id="queryUser" resultType="userLogin" >
         select * from userLogin where user_id=#{user_id}
     </select>

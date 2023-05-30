@@ -4,6 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+#    指明数据库相关包和类的位置和配置信息
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: org.example.pojo
