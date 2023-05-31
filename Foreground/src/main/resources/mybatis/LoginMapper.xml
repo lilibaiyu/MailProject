@@ -19,6 +19,10 @@
         update userLogin set password=#{arg1} where user_id=#{arg0}
     </update>
 
+    <update id="updateUserUse">
+        update  userlogin set user_use=#{arg1} where user_id=#{arg0}
+    </update>
+
 
 
 </mapper>

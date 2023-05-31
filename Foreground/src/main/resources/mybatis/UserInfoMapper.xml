@@ -20,4 +20,13 @@
         where user_id=#{user_id}
     </update>
 
+    <select id="findByPage" resultType="userInfo" >
+        select * from userinfo where user_id like #{arg2} limit #{arg0},#{arg1}
+
+    </select>
+    <select id="findTotalSize" resultType="int">
+        select  count(1) from userinfo where 1=1 and user_id like #{keyword}
+    </select>
+
+
 </mapper>

@@ -31,7 +31,7 @@ public class UserInfoController {
     //输入：修改后的userInfo类，以json形式传入，user_id,nickname,gender,phone,email必须齐全
     //返回：”修改成功！“+userInfo用户信息
     @ResponseBody
-    @RequestMapping(value = "/updateInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/updateInfo")
     public Result updateUserInfo(@RequestBody UserInfo userInfo){
         return userInfoService.updateUserInfo(userInfo);
     }
@@ -41,7 +41,7 @@ public class UserInfoController {
     //输入：用户名user_id+新密码password
     //返回：”修改成功！“+新密码
     @ResponseBody
-    @RequestMapping(value = "/updatePassword",method = RequestMethod.POST)
+    @RequestMapping(value = "/updatePassword")
     public Result changePassword(@RequestParam("user_id") String user_id,@RequestParam("password") String password){
         return userInfoService.updatePassword(user_id,password);
     }
