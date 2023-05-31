@@ -13,6 +13,7 @@
     <select id="findTotalSize" resultType="int">
         select  count(1) from goodsinfo where 1=1 and goods_name like #{keyword}
     </select>
+
     <select id="selectGoodsById" resultType="goodsInfo">
         select  * from goodsinfo where goods_id=#{goods_id}
     </select>

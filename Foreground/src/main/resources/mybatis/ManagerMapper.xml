@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--指明ManagerLoginMapper的位置-->
+<mapper namespace="org.example.mapper.ManagerMapper">
+
+    <!--    定义数据库相关sql语句-->
+    <select id="findByPage" resultType="manager" >
+        select * from manager where manager_id like #{arg2} limit #{arg0},#{arg1}
+
+    </select>
+    <select id="findTotalSize" resultType="int">
+        select  count(1) from manager where 1=1 and manager_id like #{keyword}
+    </select>
+
+    <select id="findById" resultType="manager">
+        select * from manager where manager_id=#{manager_id}
+    </select>
+
+    <insert id="addNewManager" parameterType="Manager">
+        insert into manager values (#{manager_type},#{manager_id},#{password},#{manager_use})
+    </insert>
+
+    <update id="updateManagerInfo" parameterType="Manager">
+        update manager set manager_type=#{manager_type},password=#{password},manager_use=#{manager_use} where manager_id like #{manager_id}
+    </update>
+
+    <delete id="deleteManagerById" parameterType="String">
+        delete from manager where manager_id=#{manager_id}
+    </delete>
+
+
+
+</mapper>
