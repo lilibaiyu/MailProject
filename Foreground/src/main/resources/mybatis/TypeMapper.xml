@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--指明TypeMapper的位置-->
+<mapper namespace="org.example.mapper.TypeMapper">
+
+    <!--    定义数据库相关sql语句-->
+    <insert id="addNewType" parameterType="Type" useGeneratedKeys="true" keyProperty="type_id">
+        -- 实现主键自增长
+<!--        <selectKey keyProperty="type_id" order="AFTER" resultType="int">-->
+<!--            SELECT LAST_INSERT_ID();-->
+<!--        </selectKey>-->
+        insert into type (type_name,type_use) values (#{type_name},#{type_use})
+    </insert>
+
+    <select id="findByPage" resultType="Type">
+        select * from type where type_name like #{arg2} limit #{arg0},#{arg1}
+    </select>
+
+    <select id="findTotalSize" resultType="int">
+        select  count(1) from type where 1=1 and type_name like #{keyword}
+    </select>
+
+    <select id="findTypeById" resultType="Type">
+        select * from type where type_id=#{type_id}
+    </select>
+
+    <select id="findTypeByName" resultType="Type">
+        select * from type where type_name like #{type_name}
+    </select>
+
+    <update id="updateTypeName" parameterType="Type">
+        update type set type_name=#{type_name} where type_id=#{type_id}
+    </update>
+
+    <update id="updateTypeUse" >
+        update type set type_use=#{arg1} where type_name like #{arg0}
+    </update>
+    
+    <delete id="deleteByTypeName" parameterType="String">
+        delete from type where type_name like #{type_name}
+    </delete>
+
+
+</mapper>
