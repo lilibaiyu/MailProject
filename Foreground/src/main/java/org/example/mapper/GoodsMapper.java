@@ -19,6 +19,17 @@ public interface GoodsMapper {
     //指定商品id查询商品信息
     GoodsInfo selectGoodsById(int goods_id);
 
+    //指定商品名称查询商品信息
+    GoodsInfo selectGoodsByName(String goods_name);
+
+    //新建商品
+    int addNewGood(GoodsInfo goodsInfo);
+
+    //更新商品
+    int updateGoodsInfo(GoodsInfo goodsInfo);
+
+    //指定商品名称删除商品
+    int deleteGoodsByName(String goods_name);
 
 
 

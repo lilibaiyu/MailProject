@@ -47,5 +47,46 @@ public class GoodsService {
     }
 
 
+    //新建商品
+    public Result addNewGood(GoodsInfo goodsInfo){
+        //先检查是否存在该商品
+        if(goodsMapper.selectGoodsByName(goodsInfo.getGoods_name())==null){
+            //向数据库新建商品
+            Integer i=goodsMapper.addNewGood(goodsInfo);
+            if(i > 0){
+                //从数据库传回新建的商品
+                GoodsInfo newGoodsInfo=goodsMapper.selectGoodsByName(goodsInfo.getGoods_name());
+                return new Result("新建成功！",newGoodsInfo);
+            }else {
+                return new Result("新建失败！");
+            }
+        }
+        else {
+            return new Result("该商品已经存在！");
+        }
+    }
+
+    //更新商品
+    public Result updateGoodsInfo(GoodsInfo goodsInfo){
+        Integer i=goodsMapper.updateGoodsInfo(goodsInfo);
+        if(i > 0){
+            return new Result("修改成功！");
+        }
+        else {
+            return new Result("修改失败！");
+        }
+    }
+
+    //删除商品
+    public Result deleteGoodsByName(String goods_name){
+        Integer i=goodsMapper.deleteGoodsByName(goods_name);
+        if(i > 0){
+            return new Result("删除成功！");
+        }
+        else {
+            return new Result("删除失败！");
+        }
+    }
+
 
 }

@@ -18,7 +18,7 @@ public class SpecialistController {
 
     //新建类型
     //传入：type_name
-    //返回：创建成功！+Type实例对象
+    //返回：创建成功！+Type实例对象/创建失败！/该类型已经存在！
     @ResponseBody
     @RequestMapping("/newType")
     public Result addNewType(@RequestParam("type_name") String type_name){

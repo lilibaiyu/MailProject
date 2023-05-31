@@ -17,5 +17,23 @@
         select  * from goodsinfo where goods_id=#{goods_id}
     </select>
 
+    <select id="selectGoodsByName" resultType="goodsInfo">
+        select * from goodsinfo where goods_name like #{goods_name}
+    </select>
+
+<!--    设置主键的自增长类型-->
+    <insert id="addNewGood" parameterType="goodsInfo" useGeneratedKeys="true" keyProperty="goods_id">
+        insert into goodsinfo(goods_name,unit_price,image,description,type_id) values (#{goods_name},#{unit_price},#{image},#{description},#{type_id})
+    </insert>
+
+    <update id="updateGoodsInfo" parameterType="goodsInfo">
+        update goodsinfo set goods_name=#{goods_name},unit_price=#{unit_price},image=#{image},description=#{description},type_id=#{type_id}
+        where goods_id=#{goods_id}
+    </update>
+
+    <delete id="deleteGoodsByName" parameterType="String">
+        delete from goodsinfo where goods_name like #{goods_name}
+    </delete>
+
 
 </mapper>
