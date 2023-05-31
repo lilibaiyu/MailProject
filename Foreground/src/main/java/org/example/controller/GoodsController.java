@@ -39,6 +39,15 @@ public class GoodsController {
         return goodsService.selectGoodsByCondition(currentPage,size,keyword);
     }
 
+    //指定类型查询商品信息
+    //传入：type_id
+    //返回：商品列表
+    @ResponseBody
+    @RequestMapping("/showTypeGoods")
+    public Result showTypeGoods(@RequestParam("type_id") Integer type_id){
+        return goodsService.selectGoodsByType(type_id);
+    }
+
     //商品详情页
     //传入：goods_id：商品id
     //返回：指定id的商品信息

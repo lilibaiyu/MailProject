@@ -16,6 +16,9 @@ public interface GoodsMapper {
     //指定商品名字返回数量
     int findTotalSize(String keyword);
 
+    //指定商品类型返回商品信息
+    List<GoodsInfo> selectGoodsByType(Integer type_id);
+
     //指定商品id查询商品信息
     GoodsInfo selectGoodsById(int goods_id);
 

@@ -46,6 +46,10 @@ public class GoodsService {
         return new Result(goodsMapper.selectGoodsById(goods_id));
     }
 
+    //指定类型查询商品信息
+    public Result selectGoodsByType(Integer type_id){
+        return new Result(goodsMapper.selectGoodsByType(type_id));
+    }
 
     //新建商品
     public Result addNewGood(GoodsInfo goodsInfo){
