@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--指明TypeMapper的位置-->
+<mapper namespace="org.example.mapper.OrderMapper">
+
+    <!--    定义数据库相关sql语句-->
+    <insert id="addNewOrder" parameterType="Order">
+        insert into goodsorder values(#{user_id},#{goods_id_list},#{order_time},#{address},#{price})
+    </insert>
+
+    <select id="findByUserId" resultType="Order">
+        select * from goodsorder where user_id=#{user_id}
+    </select>
+
+
+</mapper>

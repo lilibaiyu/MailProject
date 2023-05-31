@@ -10,6 +10,10 @@
         select * from cart where goods_id = #{arg0} and user_id=#{arg1}
     </select>
 
+    <select id="findByUserId" resultType="cart">
+        select * from cart where user_id=#{user_id}
+    </select>
+
     <insert id="addToCart" parameterType="cart">
         insert into cart values (#{goods_id},#{user_id})
     </insert>

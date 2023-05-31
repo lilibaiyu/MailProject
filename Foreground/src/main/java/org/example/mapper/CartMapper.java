@@ -12,6 +12,9 @@ public interface CartMapper {
     //指定商品id和用户id查询购物车
     Cart findCartByGoodsAndUser(int goods_id,String user_id);
 
+    //指定用户id查询购物车
+    List<Cart> findByUserId(String user_id);
+
     //指定商品id和用户id插入新的购物车
     int addToCart(Cart cart);
 
