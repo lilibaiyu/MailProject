@@ -8,6 +8,8 @@ import org.example.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 //用户登录和注册
 @Service
 public class LoginService {
@@ -44,7 +46,7 @@ public class LoginService {
             return new Result("用户不存在！");
         }
         //检查密码
-        else if(userLogin.getPassword()==u.getPassword()){
+        else if(!Objects.equals(userLogin.getPassword(), u.getPassword())){
             return new Result("密码错误！");
         }
         else{

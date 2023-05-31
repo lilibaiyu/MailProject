@@ -26,8 +26,8 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("/register")//二级映射
     public Result register(@RequestParam("user_id") String user_id, @RequestParam("password") String password){
-        //先实例化用户对象，然后进行注册
-        UserLogin userLogin=new UserLogin(user_id,password);
+        //先实例化用户对象，然后进行注册，默认user_use为1
+        UserLogin userLogin=new UserLogin(user_id,password,1);
         return loginService.register(userLogin);
     }
 
@@ -37,8 +37,8 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("/login")//二级映射
     public Result login(@RequestParam("user_id") String user_id, @RequestParam("password") String password){
-        //先实例化用户对象，然后进行登录
-        UserLogin userLogin=new UserLogin(user_id,password);
+        //先实例化用户对象，默认user_use为1，然后进行检查登录
+        UserLogin userLogin=new UserLogin(user_id,password,1);
         return loginService.login(userLogin);
     }
 

@@ -9,9 +9,9 @@
     <select id="queryUser" resultType="userLogin" >
         select * from userLogin where user_id=#{user_id}
     </select>
-
+<!--默认user_use使用值为1-->
     <insert id="insertUser" parameterType="userLogin">
-        insert into userLogin values (#{user_id},#{password})
+        insert into userLogin values (#{user_id},#{password},#{user_use})
     </insert>
 
 
